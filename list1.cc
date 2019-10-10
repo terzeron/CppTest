@@ -3,20 +3,18 @@
 
 using namespace std;
 
-int
-main ()
+int main()
 {
-  list < char >col1;
+    list < char >col1;
 
-  for (char c = 'a'; c <= 'z'; ++c)
-    col1.push_back (c);
+    for (char c = 'a'; c <= 'z'; ++c)
+	col1.push_back(c);
 
-  while (!col1.empty ())
-    {
-      cout << col1.front () << ' ';
-      col1.pop_front ();
+    while (!col1.empty()) {
+	cout << col1.front() << ' ';
+	col1.pop_front();
     }
-  cout << endl;
+    cout << endl;
 
-  return 0;
+    return 0;
 }

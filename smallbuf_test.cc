@@ -17,13 +17,13 @@ int main(void)
 
     fstrm.open(keyword_file.c_str());
     if (fstrm.is_open() == false) {
-        cout << "Error: can't open keyword file '" << keyword_file
-             << "', " << errno << ": " << strerror(errno) << endl;
-        return -1;
+	cout << "Error: can't open keyword file '" << keyword_file
+	    << "', " << errno << ": " << strerror(errno) << endl;
+	return -1;
     }
     while (fstrm.eof() == false) {
-        fstrm.getline(line, MAX_LINE_LEN);
-        cout << "# " << line << endl;
+	fstrm.getline(line, MAX_LINE_LEN);
+	cout << "# " << line << endl;
     }
     fstrm.close();
 }

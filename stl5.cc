@@ -27,9 +27,9 @@ int main(void)
     }
 
     if (a.find(c) != string::npos) {
-        cout << "is not npos" << endl;
+	cout << "is not npos" << endl;
     } else {
-        cout << "is npos" << endl;
+	cout << "is npos" << endl;
     }
 
     if (a.find(d) > 0) {
@@ -41,12 +41,9 @@ int main(void)
     }
 
     if (a.find(d) != string::npos) {
-        cout << "is not npos" << endl;
+	cout << "is not npos" << endl;
     } else {
-        cout << "is npos" << endl;
+	cout << "is npos" << endl;
     }
 
 }
-
-
-    

@@ -8,12 +8,12 @@ using namespace std;
 int main(void)
 {
     string run[4][5] = {
-	{ "a", "a", "a", "b", "c" },
-	{ "a", "a", "a", "a", "b" },
-	{ "b", "a", "a", "b", "c" },
-	{ "a", "a", "a", "b", "c" },
+	{"a", "a", "a", "b", "c"},
+	{"a", "a", "a", "a", "b"},
+	{"b", "a", "a", "b", "c"},
+	{"a", "a", "a", "b", "c"},
     };
-    int pos[4] = {0, 0, 0, 0};
+    int pos[4] = { 0, 0, 0, 0 };
     triple_minheap_t query_num_heap;
     triple_t triple;
     int num;

@@ -6,22 +6,21 @@
 
 using namespace std;
 
-int
-main (void)
+int main(void)
 {
-  list < int >col1;
-  vector < int >col2;
+    list < int >col1;
+    vector < int >col2;
 
-  for (int i = 1; i <= 9; ++i)
-    col1.push_back (i);
+    for (int i = 1; i <= 9; ++i)
+	col1.push_back(i);
 
-  col2.resize (col1.size ());
+    col2.resize(col1.size());
 
-  copy (col1.begin (), col1.end (), col2.begin ());
+    copy(col1.begin(), col1.end(), col2.begin());
 
-  deque < int >col3 (col1.size ());
+    deque < int >col3(col1.size());
 
-  copy (col1.begin (), col1.end (), col3.begin ());
+    copy(col1.begin(), col1.end(), col3.begin());
 
-  return 0;
+    return 0;
 }

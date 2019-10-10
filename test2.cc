@@ -15,18 +15,15 @@ int main()
     int array[size];
     int n = 0;
 
-    while (cin >> array[n++])
-	;
+    while (cin >> array[n++]);
 
     n--;
 
-    qsort(array, n, sizeof (int), cmp);
-    
+    qsort(array, n, sizeof(int), cmp);
+
     for (int i = 0; i < n; i++) {
 	cout << array[i] << "\n";
     }
-    
+
     return 0;
 }
-
-

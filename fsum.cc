@@ -10,18 +10,20 @@
 
 using namespace std;
 
-typedef vector<long long> llong_vct_t;
-typedef llong_vct_t::iterator llong_vitr_t;
+typedef vector < long long >llong_vct_t;
+typedef
+ llong_vct_t::iterator llong_vitr_t;
 
-const int buffer_size = 8196;
+const int
+ buffer_size = 8196;
 llong_vct_t value_list;
 
 
-int read_and_sum(istream& fstrm, int field_num)
+int read_and_sum(istream & fstrm, int field_num)
 {
-    char* delimiter = "\t";
-    char* lasts;
-    char* token;
+    char *delimiter = "\t";
+    char *lasts;
+    char *token;
     char line[buffer_size];
     long long llval;
 
@@ -33,12 +35,12 @@ int read_and_sum(istream& fstrm, int field_num)
 	llval = atoll(token);
 	value_list.push_back(llval);
     }
-    
+
     return 0;
 }
 
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     int i;
     fstream fstrm;
@@ -57,7 +59,7 @@ int main(int argc, char* argv[])
 	    fstrm.open(argv[i]);
 	    if (fstrm.is_open() == false) {
 		cerr << "can't open '" << argv[i] << "', for reading, "
-		     << errno << ": " << strerror(errno) << endl;
+		    << errno << ": " << strerror(errno) << endl;
 		return -1;
 	    }
 	    read_and_sum(fstrm, 0);
@@ -65,7 +67,7 @@ int main(int argc, char* argv[])
     } else {
 	read_and_sum(cin, 0);
     }
-    
+
     max = min = *value_list.begin();
     for (itr = value_list.begin(); itr != value_list.end(); ++itr) {
 	data = *itr;
@@ -79,7 +81,7 @@ int main(int argc, char* argv[])
 	}
     }
     printf("sum:\t%lld\n", sum);
-    mean = double(sum) / double(num_values);
+    mean = double (sum) / double (num_values);
     printf("mean:\t%f\n", mean);
     for (itr = value_list.begin(); itr != value_list.end(); ++itr) {
 	data = *itr;

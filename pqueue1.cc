@@ -6,12 +6,12 @@ using namespace std;
 
 int main(void)
 {
-    priority_queue<float> q;
+    priority_queue < float >q;
 
     q.push(66.6);
     q.push(22.2);
     q.push(44.4);
-    
+
     cout << q.top() << " ";
     q.pop();
     cout << q.top() << endl;

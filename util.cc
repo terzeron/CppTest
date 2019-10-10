@@ -217,6 +217,16 @@ void remove_whitespace(const string& str, string& result)
 }
 
 
+void tolower(char* str)
+{
+    while (*str) {
+	if (isupper((int) *str))
+	    *str = tolower((int) *str);
+	++str;
+    }
+}
+
+
 bool is_digit_string(const char *s)
 {
 #ifdef VERBOSE00
