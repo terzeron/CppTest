@@ -2,13 +2,15 @@ CC=g++
 CPPFLAGS=-g -Wall -O0 -std=c++11
 LDFLAGS=-Wall 
 
-all: test
+EXE=test
 
-test: test.o
+all: $(EXE)
+
+$(EXE): test.o
 	$(CC) -o $@ $< $(LDFLAGS)
 
 clean:
-	rm -f $(EXES) *.o *~ a.out
+	rm -f $(EXE) *.o *~ a.out
 
 .SUFFIXES:
 .SUFFIXES: .cc .h .o 

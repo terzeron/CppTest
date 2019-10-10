@@ -10,6 +10,7 @@
 
 
 using namespace std;
+using namespace icu;
 
 
 int decompose(const char* text, wchar_t* wcs_buf, uint buf_size)
