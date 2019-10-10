@@ -1,0 +1,66 @@
+/**
+ * \file test.cc
+ * \brief
+ */
+
+#include <iostream>
+#include <vector>
+
+
+using namespace std;
+
+
+class Temp {
+public:
+    Temp(int x);
+    ~Temp();
+private:
+    int m_x;
+};
+
+
+Temp::Temp(int x) {
+    cout << "Temp(x=" << x << ")" << endl;
+    cout.flush();
+    m_x = x;
+}
+
+Temp::~Temp() {
+    cout << "~Temp()...x=" << m_x << endl;
+    cout.flush();
+}
+
+class Test {
+public:
+    Test();
+    ~Test();
+    vector<string> temp_list;
+
+private:
+};
+
+
+Test::Test() {
+    cout << "Test()" << endl;
+    cout.flush();
+}
+
+Test::~Test() {
+    cout << "~Test()" << endl;
+    cout.flush();
+    //temp_list.clear();
+}
+
+int main()
+{
+    Test test;
+    
+    cout << "add" << endl;
+    cout.flush();
+    for (int i = 0; i < 10; ++i) {
+        test.temp_list.push_back("hello-02klfdljsfkjsadhlfkjsdhkfjshdkfjsdhkfjsdhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsdfdhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsddhkfjshdkfjhsdkfjhsdkfjhskdjfhskldfhaksjdfhksdjfhkasjdfhsdS");
+    }
+
+    cout << "exit" << endl;
+    cout.flush();
+}
