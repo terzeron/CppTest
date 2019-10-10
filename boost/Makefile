@@ -1,35 +1,31 @@
-.SUFFIXES:
-.SUFFIXES: .cc .c .h .o .v
-.PHONY: test clean
+CC=g++
+CPPFLAGS=-g -Wall -O0 -std=c++11
+LDFLAGS=-Wall -L/usr/lib/x86_64-linux-gnu/ -lboost_regex -lboost_iostreams
 
-SRCS = regex_test_01.cc
-EXES = regex_test_01
+EXES=iostreams_test7 regex_test_01 lexical_cast_test format_test1
+OBJS=$(EXES:=.o)
+SRCS=$(OBJS:.o=.cc)
 
-CC = g++
-CFLAGS += -m64 -g -Wall -O0
-LDFLAGS += -m64
-LIB = -L/usr/lib64/boost -lboost_regex
-INCLUDE =
+all: $(EXES)
 
 .cc.o:
-	@echo "+--------------------------------"
-	@echo "| Compile $<                     "
-	@echo "+--------------------------------"
-	$(CC) -c $< $(CFLAGS) $(INCLUDE)
+	$(CC) -c $< $(CPPFLAGS)
 
-all: $(EXES) TAGS
-
-TAGS: $(SRCS)
-	etags $^
+iostreams_test7: iostreams_test7.o
+	$(CC) -o $@ $? $(LDFLAGS)
 
 regex_test_01: regex_test_01.o
-	@echo "+-------------------------------+"
-	@echo "| regex_test_01                 |"
-	@echo "+-------------------------------+"
-	$(CC) -o $@ $^ $(LDFLAGS) $(LIB)
+	$(CC) -o $@ $? $(LDFLAGS)
+
+lexical_cast_test: lexical_cast_test.o
+	$(CC) -o $@ $? $(LDFLAGS)
+
+format_test1: format_test1.o
+	$(CC) -o $@ $? $(LDFLAGS)
 
 clean:
-	@echo "+--------------------------------"
-	@echo "| Remove all binray files        "
-	@echo "+--------------------------------"
-	rm -f $(EXES) *.o *~ core.[0-9][0-9]* core TAGS tags vgcore.[0-9][0-9]*
+	rm -f $(EXES) *.o *~ a.out
+
+.SUFFIXES:
+.SUFFIXES: .cc .h .o 
+.PHONY: all clean subdirs $(SUBDIRS)

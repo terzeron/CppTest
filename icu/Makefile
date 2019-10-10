@@ -1,14 +1,25 @@
-SRCS=decompose.cc
-OBJS=$(SRCS:.cc=.o)
-EXE=$(SRCS:.cc=)
+CC=g++
+CFLAGS=-g -Wall -O0 -std=c++11 -I/usr/include/unicode
+LDFLAGS=-Wall -L/usr/lib/x86_64-linux-gnu/ -licuuc
 
-CFLAGS+=-I$(HOME)/include -I$(HOME)/include/unicode -g -Wall
-LDFLAGS+=-L$(HOME)/lib -licuuc -licudata
+EXES=codecvt_test decompose
+OBJS=$(EXES:=.o)
+SRCS=$(OBJS:.o=.cc)
+
+all: $(EXES)
+
+codecvt_test: codecvt_test.o
+	$(CC) -o $@ $? $(LDFLAGS)
+
+decompose: decompose.o
+	$(CC) -o $@ $? $(LDFLAGS)
 
 .cc.o:
 	$(CC) -c $< $(CFLAGS)
 
-all: $(EXE)
-	
-decompose: $(OBJS)
-	$(CC) -o $@ $(LDFLAGS) $<
+clean:
+	rm -f $(EXES) *.o *~ a.out
+
+.SUFFIXES:
+.SUFFIXES: .cc .h .o 
+.PHONY: all clean subdirs $(SUBDIRS)
