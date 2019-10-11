@@ -19,7 +19,7 @@ llong_vct_t value_list;
 
 int read_and_sum(istream & fstrm, int field_num)
 {
-    char *delimiter = "\t";
+    const char *delimiter = "\t";
     char *lasts;
     char *token;
     char line[buffer_size];
