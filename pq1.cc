@@ -4,17 +4,17 @@
 
 using namespace std;
 
-typedef pair < string, int >pa;
+typedef pair<string, int> pa;
 
 class comp {
-  public:
+public:
     bool operator () (const pa & p1, const pa & p2) const {
-	return p1.second > p2.second;
-}};
+        return p1.second > p2.second;
+    }};
 
 int main()
 {
-    priority_queue < pa, deque < pa >, comp > Q;
+    priority_queue<pa, deque<pa>, comp> Q;
     pa p1("hello", 1);
     Q.push(p1);
     pa p2("java", 5);
@@ -28,8 +28,8 @@ int main()
     Q.push(make_pair("member", 0));
 
     while (Q.empty() == false) {
-	pa x = Q.top();
-	cout << x.first << " " << x.second << endl;
-	Q.pop();
+        pa x = Q.top();
+        cout << x.first << " " << x.second << endl;
+        Q.pop();
     }
 }

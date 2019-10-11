@@ -6,7 +6,7 @@ using namespace std;
 
 int main(void)
 {
-    typedef multimap < int, string > IntStringMMap;
+    typedef multimap<int, string> IntStringMMap;
 
     IntStringMMap col1;
 
@@ -21,8 +21,8 @@ int main(void)
     IntStringMMap::iterator pos;
 
     for (pos = col1.begin(); pos != col1.end(); ++pos) {
-	cout << pos->second << '(';
-	cout << (*pos).first << ") ";
+        cout << pos->second << '(';
+        cout << (*pos).first << ") ";
     }
     cout << endl;
 

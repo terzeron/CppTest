@@ -36,7 +36,7 @@ class Test {
   public:
     Test();
     ~Test();
-    vector < string > temp_list;
+    vector<string> temp_list;
 
   private:
 };

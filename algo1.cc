@@ -6,9 +6,9 @@ using namespace std;
 
 int main(void)
 {
-    vector < int >col1;
+    vector<int> col1;
 
-    vector < int >::iterator pos;
+    vector<int>::iterator pos;
 
     col1.push_back(2);
     col1.push_back(5);
@@ -33,7 +33,7 @@ int main(void)
     // 1 2 6 5 4 3
 
     for (pos = col1.begin(); pos != col1.end(); ++pos)
-	cout << *pos << ' ';
+        cout << *pos << ' ';
     cout << endl;
 
     return 0;

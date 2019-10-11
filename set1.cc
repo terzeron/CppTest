@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    typedef set < int >IntSet;
+    typedef set<int> IntSet;
     IntSet col1;
 
     col1.insert(3);
@@ -18,7 +18,7 @@ int main()
 
     IntSet::const_iterator pos;
     for (pos = col1.begin(); pos != col1.end(); ++pos)
-	cout << *pos << ' ';
+        cout << *pos << ' ';
     cout << endl;
 
     return 0;

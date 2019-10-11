@@ -67,29 +67,4 @@ time_t get_ts_from_HHMISS(const char* time_str);
 time_t get_current_HHMISS_ts(void);
 string get_HHMISS_from_ts(const time_t ts);
 
-wstring mbs2wcs(string const& str, locale const& loc=locale(""));
-string wcs2mbs(wstring const& str, locale const& loc=locale(""));
-
-/**
- * \def uhc2wcs
- * \brief converts an UHC(CP949) string to a WCS wide string
- * \remarks null function 
- */
-#if 0
-wstring uhc2wcs(string const& str);
-#else // 0
-#define uhc2wcs(str) (str)
-#endif // 0
-
-/**
- * \def wcs2uhc
- * \brief converts a WCS wide string to an UHC(CP949) string
- * \remarks null function
- */
-#if 0
-string wcs2uhc(wstring const& str);
-#else // 0
-#define wcs2uhc(str) (str)
-#endif // 0
-
 #endif // _UTIL_H_

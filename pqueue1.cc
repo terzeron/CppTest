@@ -6,7 +6,7 @@ using namespace std;
 
 int main(void)
 {
-    priority_queue < float >q;
+    priority_queue<float> q;
 
     q.push(66.6);
     q.push(22.2);

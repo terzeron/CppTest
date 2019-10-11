@@ -6,7 +6,7 @@ using namespace std;
 
 int main(void)
 {
-    typedef map < string, float >StringFloatMap;
+    typedef map<string, float> StringFloatMap;
 
     StringFloatMap col1;
 
@@ -17,8 +17,8 @@ int main(void)
 
     StringFloatMap::iterator pos;
     for (pos = col1.begin(); pos != col1.end(); ++pos)
-	cout << "key: " << pos->first << "\" " << "value: " << pos->
-	    second << endl;
+        cout << "key: " << pos->first << "\" " << "value: " << pos->
+            second << endl;
 
     return 0;
 }

@@ -5,9 +5,8 @@
 #include <vector>
 #include <queue>
 #include <map>
-#include <ext/hash_fun.h>
-#include <ext/hash_map>
-#include <ext/hash_set>
+#include <unordered_map>
+#include <unordered_set>
 
 //#define VERBOSE
 
@@ -34,38 +33,32 @@ typedef pair<string, string> str_str_pa_t;
 typedef pair<string, int> str_int_pa_t;
 typedef pair<string, double> str_double_pa_t;
 
-typedef struct _string_hash {
-    size_t operator()(const string& s) const {
-	return __gnu_cxx::hash<const char *>()(s.c_str());
-    }
-} string_hash_t;
-
 typedef priority_queue<int_str_pa_t, deque<int_str_pa_t>, 
-		       greater<int_str_pa_t> > int_str_minheap_t;
+    greater<int_str_pa_t> > int_str_minheap_t;
 typedef priority_queue<int_str_pa_t, deque<int_str_pa_t>, 
-		       less<int_str_pa_t> > int_str_maxheap_t;
+    less<int_str_pa_t> > int_str_maxheap_t;
 typedef priority_queue<double_str_pa_t, deque<double_str_pa_t>,
-		       greater<double_str_pa_t> > double_str_minheap_t;
+    greater<double_str_pa_t> > double_str_minheap_t;
 typedef priority_queue<double_str_pa_t, deque<double_str_pa_t>,
-		       less<double_str_pa_t> > double_str_maxheap_t;
+    less<double_str_pa_t> > double_str_maxheap_t;
 
 typedef vector<str_double_pa_t*> str_dbl_pa_vector_t;
 typedef str_dbl_pa_vector_t::iterator str_dbl_pa_iter_t;
 
-typedef hash_map<string, basis_data_t, string_hash_t> str_basis_map_t;
+typedef unordered_map<string, basis_data_t> str_basis_map_t;
 typedef str_basis_map_t::iterator str_basis_iter_t;
-typedef hash_map<string, int, string_hash_t> str_int_map_t;
+typedef unordered_map<string, int> str_int_map_t;
 typedef str_int_map_t::iterator str_int_iter_t;
-typedef hash_map<string, string, string_hash_t> str_str_map_t;
+typedef unordered_map<string, string> str_str_map_t;
 typedef str_str_map_t::iterator str_str_iter_t;
-typedef hash_map<string, double, string_hash_t> str_double_map_t;
+typedef unordered_map<string, double> str_double_map_t;
 typedef str_double_map_t::iterator str_double_iter_t;
-typedef hash_map<string, int_str_pa_t, string_hash_t> str_pa_map_t;
+typedef unordered_map<string, int_str_pa_t> str_pa_map_t;
 typedef str_pa_map_t::iterator str_pa_iter_t;
-typedef hash_map<string, bool, string_hash_t> str_bool_map_t;
+typedef unordered_map<string, bool> str_bool_map_t;
 typedef str_bool_map_t::iterator str_bool_iter_t;
 
-typedef hash_set<string, string_hash_t> str_set_t;
+typedef unordered_set<string> str_set_t;
 typedef str_set_t::iterator str_set_iter_t;
 
 // query statistics
@@ -78,7 +71,7 @@ typedef struct _query_stat {
     int luipcnt;
     int lqc;
 } query_stat_t;
-typedef hash_map<string, query_stat_t, string_hash_t> str_stat_map_t;
+typedef unordered_map<string, query_stat_t> str_stat_map_t;
 typedef str_stat_map_t::iterator str_stat_iter_t;
 
 // query prediction indexes
@@ -98,7 +91,7 @@ typedef struct _query_pred {
     int uipcnt_rank;
     double rank_velocity;
 } query_pred_t;
-typedef hash_map<string, query_pred_t, string_hash_t> str_pred_map_t;
+typedef unordered_map<string, query_pred_t> str_pred_map_t;
 typedef str_pred_map_t::iterator str_pred_iter_t;
 
 typedef struct _cnts_all {
@@ -109,7 +102,7 @@ typedef struct _cnts_all {
     int luipcnt;
     int lqc;
 } cnts_all_t;
-typedef hash_map<string, cnts_all_t, string_hash_t> str_cntsall_map_t;
+typedef unordered_map<string, cnts_all_t> str_cntsall_map_t;
 typedef str_cntsall_map_t::iterator str_cntsall_iter_t;
 
 typedef struct _cnts {
@@ -131,7 +124,7 @@ typedef struct _cnts_24h {
     int total_aqc;
     int total_auipcnt;
 } cnts_24h_t;
-typedef hash_map<string, cnts_24h_t, string_hash_t> str_cnts24h_map_t;
+typedef unordered_map<string, cnts_24h_t> str_cnts24h_map_t;
 typedef str_cnts24h_map_t::iterator str_cnts24h_iter_t;
 
 typedef struct _triple {
@@ -141,11 +134,11 @@ typedef struct _triple {
 } triple_t;
 typedef struct _triple_cmp {
     bool operator()(const triple_t& a, const triple_t& b) {
-	return a.query > b.query;
+        return a.query > b.query;
     }
 } triple_cmp_t;
 typedef priority_queue<triple_t, deque<triple_t>, 
-		       triple_cmp_t > triple_minheap_t;
+    triple_cmp_t > triple_minheap_t;
 
 // default values for configuration
 const string default_result_dir = "/maple/result";

@@ -1,5 +1,9 @@
 #include <stdlib.h>
-#include <iostream.h>
+#include <iostream>
+
+
+using namespace std;
+
 
 inline int cmp(const void *a, const void *b)
 {

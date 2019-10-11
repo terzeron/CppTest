@@ -6,40 +6,40 @@
 using namespace std;
 
 class Person {
-  public:
+public:
     Person() {
-	fname = "";
-	lname = "";
+        fname = "";
+        lname = "";
     } Person(string a, string b) {
-	fname = a;
-	lname = b;
+        fname = a;
+        lname = b;
     }
     ~Person() {
-	fname = "";
-	lname = "";
+        fname = "";
+        lname = "";
     }
     string firstname() const {
-	return fname;
+        return fname;
     } string lastname() const {
-	return lname;
-  } private:
-     string fname;
+        return lname;
+    } private:
+    string fname;
     string lname;
 };
 
 
 class PersonSortCriterion {
-  public:
+public:
     bool operator () (const Person & p1, const Person & p2) const {
-	return (p1.lastname() < p2.lastname()) ||
-	    ((p2.lastname() == p1.lastname()) &&
-	     (p1.firstname() < p2.firstname()));
-}};
+        return (p1.lastname() < p2.lastname()) ||
+            ((p2.lastname() == p1.lastname()) &&
+             (p1.firstname() < p2.firstname()));
+    }};
 
 
 int main()
 {
-    typedef set < Person, PersonSortCriterion > PersonSet;
+    typedef set<Person, PersonSortCriterion> PersonSet;
 
     PersonSet coll;
     coll.insert(Person("William", "Bratton"));
@@ -50,7 +50,7 @@ int main()
 
     PersonSet::iterator pos;
     for (pos = coll.begin(); pos != coll.end(); ++pos) {
-	cout << pos->firstname() << " " << pos->lastname() << endl;
+        cout << pos->firstname() << " " << pos->lastname() << endl;
     }
 
 }

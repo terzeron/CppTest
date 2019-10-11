@@ -7,11 +7,11 @@ using namespace std;
 
 int main()
 {
-    list < int >col1;
-    vector < int >col2;
+    list<int> col1;
+    vector<int> col2;
 
     for (int i = 1; i <= 9; ++i)
-	col1.push_back(i);
+        col1.push_back(i);
 
     copy(col1.begin(), col1.end(), col2.begin());	// segmentation fault
 
