@@ -11,10 +11,13 @@ int main()
 
     strcpy(p, "123456789");
     cout << p << endl;
-    delete[]p;
+
+    delete[] p;
     cout << p << endl;
+
     ++p;
-    delete p;
+    delete[] p;
     cout << p << endl;
+    
     return 0;
 }
