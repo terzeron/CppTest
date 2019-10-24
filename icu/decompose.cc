@@ -3,17 +3,17 @@
 #include <cwchar>
 #include <cstring>
 
-#include "unistr.h"
-#include "normlzr.h"
-#include "unorm.h"
-#include "bytestream.h"
+#include "unicode/unistr.h"
+#include "unicode/normlzr.h"
+#include "unicode/unorm.h"
+#include "unicode/bytestream.h"
 
 
 using namespace std;
 using namespace icu;
 
 
-int decompose(const char* text, wchar_t* wcs_buf, uint buf_size)
+int decompose(const char* text, wchar_t* wcs_buf, unsigned int buf_size)
 {
     // UTF-8 to UCS4
     UnicodeString str = UnicodeString::fromUTF8(StringPiece(text));
@@ -34,7 +34,7 @@ int decompose(const char* text, wchar_t* wcs_buf, uint buf_size)
 }
 
 
-int compose(wchar_t* wcs, uint wcs_len, char* buf, uint buf_size)
+int compose(wchar_t* wcs, unsigned int wcs_len, char* buf, unsigned int buf_size)
 {
     // UCS4 to NFC
     UnicodeString str = UnicodeString::fromUTF32((UChar32*) wcs, wcs_len);
@@ -64,7 +64,7 @@ int main(void)
     char new_text[1024];
 
     decompose(text, wcs_buf, sizeof (wcs_buf));
-    for (uint i = 0; wcs_buf[i] != 0; ++i) {
+    for (unsigned int i = 0; wcs_buf[i] != 0; ++i) {
         cout << "wcs_buf[" << i << "]=0x" << hex << (int) wcs_buf[i] << endl;
     }
     cout << endl;

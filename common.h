@@ -16,7 +16,6 @@
 #define MAXQUERY 128
 
 using namespace std;
-using namespace __gnu_cxx;
 
 typedef struct _basis_data {
     int segment_num;

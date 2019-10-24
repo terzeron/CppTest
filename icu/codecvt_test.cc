@@ -1,13 +1,11 @@
 #include <iostream>
-#include <locale>
-#include <cwchar>
 #include <string.h>
-#include <sys/types.h>
-#include <netinet/in.h>
+#include <locale>
 #include <ext/codecvt_specializations.h>
 
 
 using namespace std;
+
 
 typedef encoding_state state_type;
 typedef codecvt<wchar_t, char, state_type> unicode_codecvt;
@@ -29,13 +27,13 @@ int main(void)
     wchar_t* ito_next;
     codecvt_base::result r1;
     
-    int size = strlen(text);
+    size_t size = strlen(text);
     r1 = cvt->in(state01, text, text + size, efrom_next,
                  i_arr, i_arr + size, ito_next);
     if (r1 != codecvt_base::ok)
         return -1;
     
-    for (uint i = 0; i_arr[i] != 0x00000000 ; ++i) {
+    for (int i = 0; i_arr[i] != 0x00000000 ; ++i) {
         if (i_arr[i] == 0x20000000) {
             cout << endl;
         } else {
