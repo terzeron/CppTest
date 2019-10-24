@@ -1,14 +1,21 @@
 CC=g++
+CPPFLAGS=-Wall -g -O0 -std=c++17
+LDFLAGS=-Wall
 
-EXE=test
+EXES=test
+OBJS=$(EXES:=.o)
+SRCS=$(OBJS:.o=.cc)
 
-all: $(EXE)
+all: $(EXES)
 
-$(EXE): test.o
-	$(CC) -o $@ $< $(LDFLAGS)
+.cc.o:
+	$(CC) -c $< $(CPPFLAGS)
+
+test: test.o
+	$(CC) -o $@ $? $(LDFLAGS)
 
 clean:
-	rm -f $(EXE) *.o *~ a.out
+	rm -f $(EXES) *.o *~ a.out
 
 .SUFFIXES:
 .SUFFIXES: .cc .h .o 

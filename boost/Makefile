@@ -1,4 +1,6 @@
 CC=g++
+CPPFLAGS=-Wall -g -O0 -std=c++17
+LDFLAGS=-Wall
 
 UNAME_S=$(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
@@ -7,7 +9,7 @@ ifeq ($(UNAME_S),Darwin)
     LDFLAGS+=-I$(BOOST_PREFIX)/lib -lboost_regex -lboost_iostreams
 else
 	ifeq ($(UNAME_S),Linux)
-		LDFLAGS+=/usr/lib/x86_64-linux-gnu
+		LDFLAGS+=-L/usr/lib/x86_64-linux-gnu -lboost_regex -lboost_iostreams
 	endif
 endif
 

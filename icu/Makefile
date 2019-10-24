@@ -1,18 +1,20 @@
 CC=g++
+CPPFLAGS=-Wall -g -O0 -std=c++17
+LDFLAGS=-Wall
 
 UNAME_S=$(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
     CC=g++-9
     ICU_PREFIX=/usr/local/opt/icu4c
     CPPFLAGS+=-I$(ICU_PREFIX)/include
-    LDFLAGS+=-L$(ICU_PREFIX)/lib
+    LDFLAGS+=-L$(ICU_PREFIX)/lib -liconv
 else
     ifeq ($(UNAME_S),Linux)
         CPPFLAGS+=
         LDFLAGS+=-L/usr/lib/x86_64-linux-gnu
     endif
 endif
-LDFLAGS+=-licuuc -liconv
+LDFLAGS+=-licuuc
 
 EXES=decompose codecvt_test
 OBJS=$(EXES:=.o)
