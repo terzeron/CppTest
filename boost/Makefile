@@ -1,6 +1,15 @@
 CC=g++
-CPPFLAGS=-g -Wall -O0 -std=c++11
-LDFLAGS=-Wall -L/usr/lib/x86_64-linux-gnu/ -lboost_regex -lboost_iostreams
+
+UNAME_S=$(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+	BOOST_PREFIX=/usr/local/opt/boost
+    CPPFLAGS+=-I$(BOOST_PREFIX)/include
+    LDFLAGS+=-I$(BOOST_PREFIX)/lib -lboost_regex -lboost_iostreams
+else
+	ifeq ($(UNAME_S),Linux)
+		LDFLAGS+=/usr/lib/x86_64-linux-gnu
+	endif
+endif
 
 EXES=iostreams_test7 regex_test_01 lexical_cast_test format_test1
 OBJS=$(EXES:=.o)
