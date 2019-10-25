@@ -11,7 +11,7 @@ else
 	endif
 endif
 
-EXES=iostreams_test7 regex_test_01 lexical_cast_test format_test1
+EXES=iostreams_test2 iostreams_test7 regex_test_01 lexical_cast_test format_test1
 OBJS=$(EXES:=.o)
 SRCS=$(OBJS:.o=.cc)
 
@@ -19,6 +19,9 @@ all: $(EXES)
 
 .cc.o:
 	$(CC) -c $< $(CPPFLAGS)
+
+iostreams_test2: iostreams_test2.o
+	$(CC) -o $@ $? $(LDFLAGS)
 
 iostreams_test7: iostreams_test7.o
 	$(CC) -o $@ $? $(LDFLAGS)
