@@ -10,7 +10,7 @@ ifeq ($(UNAME_S),Linux)
     LDFLAGS+=
 endif
 
-EXES=list1 list2 vector1 deque1 deque2 set1 multiset0 mmap1 map1 algo1 find1 copy1 copy2 copy3 ioiter1 pq1 sort1 cvt destruct_test c++01 compare_test daily_sum_test fsum hash_set_delete heap_test insertion_sort pq2 pqueue1 pqueue2 pqueue3 smallbuf_test sort_by_heap_test sort_check stl1 stl2 stl3 stl4 stl5 string_concat string_test sub test test1 test2 test3 test4 test5 test6 test7 test8 test9 test10 test11 test12 wchar_test sort_perf multimap_perf1 cpp_std_version cpp_std_version
+EXES=list1 list2 vector1 deque1 deque2 set1 multiset0 mmap1 map_test map1 algo1 find1 copy1 copy2 copy3 ioiter1 pq1 sort1 cvt destruct_test c++01 compare_test daily_sum_test fsum hash_set_delete heap_test insertion_sort pq2 pqueue1 pqueue2 pqueue3 smallbuf_test sort_by_heap_test sort_check stl1 stl2 stl3 stl4 stl5 string_concat string_test sub test test1 test2 test3 test4 test5 test6 test7 test8 test9 test10 test11 test12 wchar_test sort_perf multimap_perf1 cpp_std_version rand2
 OBJS=$(EXES:=.o)
 SRCS=$(EXES:=.cc)
 
@@ -49,6 +49,9 @@ list1: list1.o
 	$(CC) -o $@ $< $(LDFLAGS)
 
 list2: list2.o
+	$(CC) -o $@ $< $(LDFLAGS)
+
+map_test: map_test.o
 	$(CC) -o $@ $< $(LDFLAGS)
 
 map1: map1.o
@@ -193,6 +196,12 @@ sort_perf: sort_perf.o
 	$(CC) -o $@ $< $(LDFLAGS)
 
 multimap_perf1: multimap_perf1.o
+	$(CC) -o $@ $< $(LDFLAGS)
+
+rand2: rand2.o
+	$(CC) -o $@ $< $(LDFLAGS)
+
+cpp_std_version: cpp_std_version.o
 	$(CC) -o $@ $< $(LDFLAGS)
 
 .cc.o:

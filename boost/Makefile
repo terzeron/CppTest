@@ -5,8 +5,8 @@ LDFLAGS=-Wall
 UNAME_S=$(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
 	BOOST_PREFIX=/usr/local/opt/boost
-    CPPFLAGS+=-I$(BOOST_PREFIX)/include
-    LDFLAGS+=-I$(BOOST_PREFIX)/lib -lboost_regex -lboost_iostreams
+	CPPFLAGS+=-I$(BOOST_PREFIX)/include
+	LDFLAGS+=-I$(BOOST_PREFIX)/lib -lboost_regex -lboost_iostreams
 else
 	ifeq ($(UNAME_S),Linux)
 		LDFLAGS+=-L/usr/lib/x86_64-linux-gnu -lboost_regex -lboost_iostreams
