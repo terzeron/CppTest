@@ -11,7 +11,7 @@ ifeq ($(UNAME_S),Darwin)
 else
     ifeq ($(UNAME_S),Linux)
         CPPFLAGS+=
-        LDFLAGS+=-L/usr/lib/x86_64-linux-gnu
+        LDFLAGS+=
     endif
 endif
 LDFLAGS+=-licuuc

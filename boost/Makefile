@@ -9,7 +9,7 @@ ifeq ($(UNAME_S),Darwin)
 	LDFLAGS+=-I$(BOOST_PREFIX)/lib -lboost_regex -lboost_iostreams
 else
 	ifeq ($(UNAME_S),Linux)
-		LDFLAGS+=-L/usr/lib/x86_64-linux-gnu -lboost_regex -lboost_iostreams
+		LDFLAGS+=-lboost_regex -lboost_iostreams
 	endif
 endif
 
