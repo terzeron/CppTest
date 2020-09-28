@@ -2,7 +2,7 @@ CC=g++
 CPPFLAGS=-Wall -g -O0 -std=c++17
 LDFLAGS=-Wall
 
-EXES=test
+EXES=test move shared_ptr
 OBJS=$(EXES:=.o)
 SRCS=$(OBJS:.o=.cc)
 
