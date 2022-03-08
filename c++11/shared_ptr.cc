@@ -8,7 +8,7 @@
 using namespace std;
 
 
-void print_string(string name, auto ptr)
+void print_string(string name, shared_ptr<string> ptr)
 {
     if (ptr == nullptr) {
         cout << name << ": null at " << ptr << endl;
