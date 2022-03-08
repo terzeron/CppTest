@@ -1,5 +1,5 @@
 CC=g++
-CPPFLAGS=-Wall -g -O0 -std=c++17
+CPPFLAGS=-Wall -g -O0 -std=c++11
 LDFLAGS=-Wall
 
 EXES=test move shared_ptr
