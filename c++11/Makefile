@@ -2,7 +2,7 @@ CC=g++
 CPPFLAGS=-Wall -g -O0 -std=c++11
 LDFLAGS=-Wall
 
-EXES=test move move1 move2 move3 shared_ptr lvalue1 string_back rvalue_reference factory static_cast
+EXES=test move move1 move2 move3 shared_ptr lvalue1 lvalue2 string_back rvalue_reference factory static_cast1 static_cast2 static_cast3 xvalue1
 OBJS=$(EXES:=.o)
 SRCS=$(OBJS:.o=.cc)
 
