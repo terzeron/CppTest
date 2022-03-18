@@ -38,5 +38,17 @@ int main(void)
     cout << "&d1=" << &d1 << endl;
     cout << d1.hello() << endl << endl;
 
+    D a[10];
+    // upcast
+    B* dp = static_cast<B*>(a);
+    cout << a[0].hello() << endl;
+    cout << dp[0].hello() << endl << endl;
+
+    // member upcast
+    int D::*pm = &D::m;
+    cout << "&D::m=" << &D::m << endl;
+    cout << "pm=" << pm << endl;
+    cout << br.*static_cast<int B::*>(pm) << endl;
+
     return 0;
 }
